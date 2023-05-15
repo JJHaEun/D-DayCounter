@@ -5,8 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D-DayCounter</title>
+    <!--  페이지 구성에 필요한 정보들은 head태그에  -->
+    <style>
+      .hi {
+        color: white;
+      }
+    </style>
+    <script>
+      console.log("html 가지고 놀기!!");
+      const clickButton = function () {
+        document.getElementById("just-input").value = "카페가고싶다!!!";
+        console.log("coffee");
+      };
+    </script>
   </head>
   <body>
-    <section>첫커밋중</section>
+    <!--  실제로 보여지는 페이지 내용이 적히는 곳 -->
+    <div class="hi" style="background-color: orangered">안녕하세요</div>
+    <div class="nice-to-meet-yu">반갑습니다</div>
+    <span id="want-bread" style="color: red">빵먹고싶</span>
+    <span>빵먹고싶</span>
+    <input type="text" id="just-input" />
+    <button onclick="clickButton()">버튼입니다</button>
   </body>
 </html>
