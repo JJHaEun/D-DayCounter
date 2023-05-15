@@ -21,8 +21,9 @@
         return dateFormat;
       };
       const counterMaker = () => {
+        const targetDateInput = dateForm(); // 해당 함수의 return데이터가 담김.
         const nowDate = new Date();
-        const targetDate = new Date(dateForm());
+        const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0); // 기본 한국시간 오전 9시를 기준으로 시간이 나옴. 따라서 자정을 기준으로 나오게 변경해보자.
         console.log(targetDate - nowDate); // target까지의 밀리초. 1ms는  0.001초 , 1초는 1000ms
         const remain = (targetDate - nowDate) / 1000; // * 0.001과 동일 => 남은 초를 알 수 있음
 
