@@ -12,20 +12,40 @@
       }
     </style>
     <script>
-      console.log("html 가지고 놀기!!");
-      const clickButton = function () {
-        document.getElementById("just-input").value = "카페가고싶다!!!";
-        console.log("coffee");
+      const dateForm = () => {
+        // console.log(document.querySelector("input"));
+        const inputYear = document.querySelector("#just-input").value; // input에 입력된 값 가져오기 querySelector를 사용할 경우 태그는 상관없이 그대로 적으면 되지만, id인지 class인지 명시필요.
+        const inputMonth = document.querySelector("#target-month").value; //
+        const inputDate = document.querySelector("#target-date").value; //
+        const dateFormat = `${inputYear}-${inputMonth}-${inputDate}`;
+        return dateFormat;
+      };
+      const counterMaker = () => {
+        const nowDate = new Date();
+        const targetDate = new Date(dateForm());
+        console.log(targetDate - nowDate); // target까지의 밀리초. 1ms는  0.001초 , 1초는 1000ms
+        const remain = (targetDate - nowDate) / 1000; // * 0.001과 동일 => 남은 초를 알 수 있음
+
+        // 1분은 60초, 1시간은 60분이며 60분은 3600초, 1일은 24시간.
+        // 24 * 60 = 1440분
+        // 1440 * 60 = 86400초 => 하루는 86400초
+        const remainDate = Math.floor(remain / 3600 / 24); // 남은 일
+        const remainHours = Math.floor((remain / 3600) % 24); // 남은 시간. 나머지값을 사용..
+        const remainMins = Math.floor((remain / 60) % 60); //  1분은 60초
+        const remainSec = Math.floor(remain % 60); // 남은 초.. 분이 되는 몫은 제외하고 그 나머지 값이 초가됨.
+        const newSpan = document.createElement("div");
+        document.body.appendChild(newSpan); // body의 아이임
+        newSpan.innerText = `${remainDate}일 ${remainHours}시간 ${remainMins}분 ${remainSec}초 남았습니다`;
       };
     </script>
   </head>
   <body>
     <!--  실제로 보여지는 페이지 내용이 적히는 곳 -->
-    <div class="hi" style="background-color: orangered">안녕하세요</div>
-    <div class="nice-to-meet-yu">반갑습니다</div>
-    <span id="want-bread" style="color: red">빵먹고싶</span>
-    <span>빵먹고싶</span>
+
     <input type="text" id="just-input" />
-    <button onclick="clickButton()">버튼입니다</button>
+    <input type="text" id="target-month" />
+    <input type="text" id="target-date" />
+
+    <button onclick="counterMaker()">버튼입니다</button>
   </body>
 </html>
