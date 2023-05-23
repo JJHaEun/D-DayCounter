@@ -1,0 +1,40 @@
+* {
+  /* padding: 0; */
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30vh;
+  gap: 0.8rem;
+  background-image: url("https://source.unsplash.com/random/?spain");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1 {
+  font-size: 3rem;
+}
+button {
+  padding: 5px 10px;
+  background-color: white;
+  border: 2px solid goldenrod;
+}
+#start_btn {
+  font-size: 1.3rem;
+}
+#d-day_count {
+  margin-bottom: 1.6rem;
+}
+.d-day-child-container {
+  text-align: center;
+  margin-right: 1rem;
+}
+.d-day-child-container span {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+input {
+  outline: none;
+}
