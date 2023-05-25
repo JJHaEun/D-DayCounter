@@ -12,7 +12,17 @@ const counterMaker = () => {
   const targetDate = new Date(targetDateInput).setHours(0, 0, 0, 0); // 기본 한국시간 오전 9시를 기준으로 시간이 나옴. 따라서 자정을 기준으로 나오게 변경해보자.
   console.log(targetDate - nowDate); // target까지의 밀리초. 1ms는  0.001초 , 1초는 1000ms
   const remain = (targetDate - nowDate) / 1000; // * 0.001과 동일 => 남은 초를 알 수 있음
+  // remain이 0이 된다면 현재인것. 즉, 목표시간에 도달한거서.
 
+  // 만약, remain이 0이라면 타이가 종료되었습니다
+  // 음수일 경우도 같이 체크하기
+  if (remain <= 0) {
+    document.getElementById("default").innerText = "타이머가 종료되었습니다";
+  } else if (isNaN(remain)) {
+    // 잘못된 시간대는 NaN이라고 나홈. isNaN이라는 함수를 사용해 NaN안 경우를 판별함
+    // 만약 잘못된 날짜가 들어왔다면 유효한 시간이 아닙니다ㅏ
+    console.log("유효한 시간대가 아닙니다");
+  }
   // 1분은 60초, 1시간은 60분이며 60분은 3600초, 1일은 24시간.
   // 24 * 60 = 1440분
   // 1440 * 60 = 86400초 => 하루는 86400초
