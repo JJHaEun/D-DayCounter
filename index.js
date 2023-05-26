@@ -1,5 +1,7 @@
+document.querySelector("#default").textContent = "D-Day를 입력해주세요";
+// textContent는 태그에 직접 텍스트를 추가해줌.
+
 const dateForm = () => {
-  // console.log(document.querySelector("input"));
   const inputYear = document.querySelector("#target-year").value; // input에 입력된 값 가져오기 querySelector를 사용할 경우 태그는 상관없이 그대로 적으면 되지만, id인지 class인지 명시필요.
   const inputMonth = document.querySelector("#target-month").value; //
   const inputDate = document.querySelector("#target-date").value; //
@@ -17,7 +19,7 @@ const counterMaker = () => {
   // 만약, remain이 0이라면 타이가 종료되었습니다
   // 음수일 경우도 같이 체크하기
   if (remain <= 0) {
-    document.getElementById("default").innerText = "타이머가 종료되었습니다";
+    // document.getElementById("default").innerText = "타이머가 종료되었습니다";
   } else if (isNaN(remain)) {
     // 잘못된 시간대는 NaN이라고 나홈. isNaN이라는 함수를 사용해 NaN안 경우를 판별함
     // 만약 잘못된 날짜가 들어왔다면 유효한 시간이 아닙니다ㅏ

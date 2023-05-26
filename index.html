@@ -7,12 +7,19 @@
     <title>D-DayCounter</title>
     <!--  페이지 구성에 필요한 정보들은 head태그에  -->
     <link rel="stylesheet" href="./index.css" />
-    <script src="./index.js"></script>
+    <!-- script태그를 만나게되면 html읽는것을 멈추고 스크립트 태그를 읽음(해석함) 
+      따라서 동시에 작업하기 위해 defer라는 것을 추가하거나, 아예 script가 html을 다 읽고 실행되게 아래쪽(아래쪽이자 body태그 안쪽)으로 옮기거나 하는 방법이 있음.) -->
+    <!-- 다만, head태그 내부에는 페이지를 구성하기위해 필요한 정보들이 담기는 것이기에
+      script태그는 여기 있는것이 맞다는 의견이 있음. 따라서 head태그 안쪽에서 해결할 수 있는 방법 중
+    defer라는 속성을 사용해 script태그를 만나 스크립트를 실행하는 중에도 html도 생성되게함. -->
+    <script src="./index.js" defer></script>
   </head>
   <body>
     <!--  실제로 보여지는 페이지 내용이 적히는 곳 -->
     <h1>D-Day</h1>
-    <div class="d-day-child-container"><span id="default"></span></div>
+    <span id="default"></span>
+
+    <div class="d-day-child-container"></div>
     <section id="d-day_count">
       <span class="d-day-child-container">
         <span id="dates">0</span>
